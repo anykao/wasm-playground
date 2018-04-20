@@ -1,6 +1,6 @@
 default:
     cargo build --target wasm32-unknown-unknown 
-bindgen:
+bindgen: default
     wasm-bindgen --no-modules target/wasm32-unknown-unknown/debug/no_modules.wasm --out-dir .
-serve:
+serve: bindgen
     devd -olp 1984 .
